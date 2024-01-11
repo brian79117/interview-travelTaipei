@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Travel_Taipei</string>
+
+    <string-array name="main_tabTitle">
+        <item>最新消息</item>
+        <item>遊憩景點</item>
+    </string-array>
+
+    <string name="menu_item_language">語言切換</string>
 </resources>
