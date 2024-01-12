@@ -67,17 +67,16 @@ class MainFragment : Fragment() {
     private fun initBarMenu() {
         requireActivity().addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                // Add menu items here
                 menuInflater.inflate(R.menu.main_menu, menu)
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 MaterialAlertDialogBuilder(requireContext())
-                    .setTitle(resources.getString(R.string.select_language))
-                    .setNeutralButton(resources.getString(R.string.cancel)) { dialog, _ ->
+                    .setTitle(appResources.getString(R.string.select_language))
+                    .setNeutralButton(appResources.getString(R.string.cancel)) { dialog, _ ->
                         dialog.dismiss()
                     }
-                    .setPositiveButton(resources.getString(R.string.confirm)) { _, _ ->
+                    .setPositiveButton(appResources.getString(R.string.confirm)) { _, _ ->
                         mainVM.setLanguage()
                         initTab()
                     }
