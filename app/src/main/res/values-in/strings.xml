@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Perjalanan Taipei</string>
+    <string name="title_news">Berita</string>
+    <string name="title_attractions">Atraksi</string>
+    <string name="menu_item_language">Ganti BAHASA</string>
+    <string name="cancel">Membatalkan</string>
+    <string name="confirm">Tentu</string>
+    <string name="select_language">Pilih bahasa</string>
+</resources>

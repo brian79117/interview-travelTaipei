@@ -1,7 +1,6 @@
 package com.example.travel_taipei.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -9,16 +8,24 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.MenuProvider
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import com.example.travel_taipei.MainApplication.Companion.appResources
 import com.example.travel_taipei.R
 import com.example.travel_taipei.adapter.MainTabAdapter
 import com.example.travel_taipei.databinding.FragmentMainBinding
+import com.example.travel_taipei.viewmodel.MainViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class MainFragment : Fragment() {
 
     private var binding: FragmentMainBinding? = null
+    private val mainVM: MainViewModel by viewModels()
     private lateinit var tabAdapter: MainTabAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,19 +42,8 @@ class MainFragment : Fragment() {
 
         Timber.d("onCreateView")
 
+        initBarMenu()
         initTab()
-
-        requireActivity().addMenuProvider(object : MenuProvider {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                // Add menu items here
-                menuInflater.inflate(R.menu.main_menu, menu)
-            }
-
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                // Handle the menu selection
-                return true
-            }
-        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         return binding?.root
     }
@@ -59,11 +55,42 @@ class MainFragment : Fragment() {
     }
 
     private fun initTab() {
-        tabAdapter = MainTabAdapter(requireContext(), parentFragmentManager, lifecycle)
+        requireActivity().title = appResources.getString(R.string.app_name)
+        tabAdapter = MainTabAdapter(parentFragmentManager, lifecycle)
         binding!!.vpMain.adapter = tabAdapter
 
         TabLayoutMediator(binding!!.tlMain, binding!!.vpMain) { tab, position ->
-            tab.text = resources.getStringArray(R.array.main_tabTitle)[position]
+            tab.text = appResources.getStringArray(R.array.main_tabTitle)[position]
         }.attach()
+    }
+
+    private fun initBarMenu() {
+        requireActivity().addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                // Add menu items here
+                menuInflater.inflate(R.menu.main_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle(resources.getString(R.string.select_language))
+                    .setNeutralButton(resources.getString(R.string.cancel)) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .setPositiveButton(resources.getString(R.string.confirm)) { _, _ ->
+                        mainVM.setLanguage()
+                        initTab()
+                    }
+                    .setSingleChoiceItems(
+                        appResources.getStringArray(R.array.language_options),
+                        mainVM.getCheckedLanguage()
+                    ) { _, which ->
+                        mainVM.checkedItem = which
+                    }
+                    .show()
+
+                return true
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 }

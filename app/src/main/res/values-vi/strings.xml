@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Du lịch Đài Bắc</string>
+    <string name="title_news">Tin tức</string>
+    <string name="title_attractions">Điểm tham quan</string>
+    <string name="menu_item_language">Thay đổi ngôn ngữ</string>
+    <string name="cancel">Hủy bỏ</string>
+    <string name="confirm">Chắc chắn</string>
+    <string name="select_language">Chọn một ngôn ngữ</string>
+</resources>

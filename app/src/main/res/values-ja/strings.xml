@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">トラベル台北</string>
+    <string name="title_news">ニュース</string>
+    <string name="title_attractions">観光スポット</string>
+    <string name="menu_item_language">言語を変えてください</string>
+    <string name="cancel">キャンセル</string>
+    <string name="confirm">もちろん</string>
+    <string name="select_language">言語を選択してください</string>
+</resources>

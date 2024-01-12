@@ -1,10 +1,29 @@
 <resources>
-    <string name="app_name">Travel_Taipei</string>
+    <string name="app_name">悠遊台北</string>
+
+    <string name="title_news">最新消息</string>
+    <string name="title_attractions">遊憩景點</string>
 
     <string-array name="main_tabTitle">
-        <item>最新消息</item>
-        <item>遊憩景點</item>
+        <item>@string/title_news</item>
+        <item>@string/title_attractions</item>
     </string-array>
 
     <string name="menu_item_language">語言切換</string>
+
+    <string-array name="language_options">
+        <item>繁體中文</item>
+        <item>简体中文</item>
+        <item>English</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>Español</item>
+        <item>Bahasa Indonesia</item>
+        <item>แบบไทย</item>
+        <item>Tiếng Việt</item>
+    </string-array>
+
+    <string name="select_language">選擇語言</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">確定</string>
 </resources>

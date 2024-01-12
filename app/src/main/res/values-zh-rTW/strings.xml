@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">悠遊台北</string>
+    <string name="title_news">最新消息</string>
+    <string name="title_attractions">遊憩景點</string>
+    <string name="menu_item_language">語言切換</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="select_language">選擇語言</string>
+</resources>
