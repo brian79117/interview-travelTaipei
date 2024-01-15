@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Travel_Taipei</string>
+    <string name="app_name">悠游台北</string>
     <string name="title_news">最新消息</string>
     <string name="title_attractions">游憩景点</string>
     <string name="menu_item_language">语言切换</string>
     <string name="cancel">取消</string>
     <string name="confirm">確定</string>
     <string name="select_language">选择语言</string>
+    <string name="api_no_network">网路异常</string>
+    <string name="api_unknown_error">发生错误</string>
+    <string name="api_unknown_host_error">找不到伺服器</string>
+    <string name="api_403_error">权限遭拒</string>
+    <string name="api_404_error">资料不存在</string>
+    <string name="api_500_error">系统发生内部错误</string>
 </resources>

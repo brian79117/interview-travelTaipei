@@ -7,4 +7,10 @@
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
     <string name="select_language">Choose language</string>
+    <string name="api_no_network">Network error</string>
+    <string name="api_unknown_error">Unknown error</string>
+    <string name="api_unknown_host_error">Server not found</string>
+    <string name="api_403_error">Forbidden</string>
+    <string name="api_404_error">Not Found</string>
+    <string name="api_500_error">Server error</string>
 </resources>

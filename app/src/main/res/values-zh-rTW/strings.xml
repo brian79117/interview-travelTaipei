@@ -7,4 +7,10 @@
     <string name="cancel">取消</string>
     <string name="confirm">确定</string>
     <string name="select_language">選擇語言</string>
+    <string name="api_no_network">網路異常</string>
+    <string name="api_unknown_error">發生錯誤</string>
+    <string name="api_unknown_host_error">找不到伺服器</string>
+    <string name="api_403_error">權限遭拒</string>
+    <string name="api_404_error">資料不存在</string>
+    <string name="api_500_error">系統發生內部錯誤</string>
 </resources>

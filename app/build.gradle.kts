@@ -69,14 +69,14 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     // dimen
-    implementation ("com.intuit.sdp:sdp-android:1.0.6")
+    implementation ("com.intuit.sdp:sdp-android:1.1.0")
 
     // log
     val timberVersion = "5.0.1"
     implementation ("com.jakewharton.timber:timber:$timberVersion")
 
     // di
-    val hiltVersion = "2.44"
+    val hiltVersion = "2.50"
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
 

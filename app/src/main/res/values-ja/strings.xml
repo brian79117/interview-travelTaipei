@@ -7,4 +7,10 @@
     <string name="cancel">キャンセル</string>
     <string name="confirm">もちろん</string>
     <string name="select_language">言語を選択してください</string>
+    <string name="api_no_network">ネットワーク異常</string>
+    <string name="api_unknown_error">エラーが発生しました</string>
+    <string name="api_unknown_host_error">サーバーが見つからない</string>
+    <string name="api_403_error">許可が拒否されました</string>
+    <string name="api_404_error">データが存在しません</string>
+    <string name="api_500_error">システムで内部エラーが発生しました</string>
 </resources>

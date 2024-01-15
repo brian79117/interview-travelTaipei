@@ -7,4 +7,10 @@
     <string name="cancel">Cancelar</string>
     <string name="confirm">Seguro</string>
     <string name="select_language">Elige un idioma</string>
+    <string name="api_no_network">Anormalidad de la red</string>
+    <string name="api_unknown_error">Ocurrió un error</string>
+    <string name="api_unknown_host_error">Servidor no encontrado</string>
+    <string name="api_403_error">Permiso denegado</string>
+    <string name="api_404_error">Los datos no existen</string>
+    <string name="api_500_error">Se produjo un error interno en el sistema</string>
 </resources>

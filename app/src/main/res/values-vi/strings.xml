@@ -7,4 +7,10 @@
     <string name="cancel">Hủy bỏ</string>
     <string name="confirm">Chắc chắn</string>
     <string name="select_language">Chọn một ngôn ngữ</string>
+    <string name="api_no_network">Mạng bất thường</string>
+    <string name="api_unknown_error">Đã xảy ra lỗi</string>
+    <string name="api_unknown_host_error">Không tìm thấy máy chủ</string>
+    <string name="api_403_error">Quyền bị từ chối</string>
+    <string name="api_404_error">Dữ liệu không tồn tại</string>
+    <string name="api_500_error">Đã xảy ra lỗi nội bộ trong hệ thống</string>
 </resources>
