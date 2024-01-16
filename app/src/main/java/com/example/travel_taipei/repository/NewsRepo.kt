@@ -8,12 +8,11 @@ import com.example.travel_taipei.api.datamodel.News
 import com.example.travel_taipei.api.errorMsg
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
-import timber.log.Timber
 import javax.inject.Inject
 
 class NewsRepo @Inject constructor(private val apiService: Apis) {
 
-    val newsResp = MutableLiveData<ApiResponse<ListResp<News>>>()
+    val newsResp = MutableLiveData<ApiResponse<ListResp<News?>>>()
 
     fun getNewsList(lang: String, page: Int) = apiService
         .getNewsList(lang = lang, page = page)

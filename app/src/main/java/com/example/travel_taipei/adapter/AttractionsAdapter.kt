@@ -40,7 +40,6 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
         if (holder is AttractionsViewHolder) {
             holder.title.text = attractionsData[position]?.name
             holder.content.text = attractionsData[position]?.introduction
@@ -59,7 +58,7 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     fun setData(data: ArrayList<Attractions?>) {
-        val startPos = if (attractionsData.size == 0) 0 else attractionsData.size
+        val startPos = attractionsData.size
         val insertCount = data.size
         attractionsData.addAll(data)
         this.notifyItemRangeInserted(startPos, insertCount)
@@ -71,7 +70,7 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
         val list: ArrayList<Attractions?> = arrayListOf(null)
         attractionsData.addAll(list)
-        this.notifyItemInserted(if (attractionsData.size == 0) 0 else attractionsData.size)
+        this.notifyItemInserted(attractionsData.size)
     }
 
     fun removeLoadingItem() {
@@ -89,7 +88,5 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         val image = view.ivMain
     }
 
-    inner class LoadingViewHolder(view: ItemLoadingBinding) : RecyclerView.ViewHolder(view.root) {
-
-    }
+    inner class LoadingViewHolder(view: ItemLoadingBinding) : RecyclerView.ViewHolder(view.root)
 }
