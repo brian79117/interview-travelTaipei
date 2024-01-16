@@ -68,7 +68,21 @@ fun getAppCountryCode(context: Context): CountryCode {
     val appLanguageCode = getPrefStringValue(context, LANGUAGE_CODE, "")
     val appCountryCode = getPrefStringValue(context, COUNTRY_CODE, "")
 
-    countryCode = CountryCode.entries.find { it.languageCode == appLanguageCode && it.name == appCountryCode } ?: CountryCode.TW
+    countryCode =
+        CountryCode.entries.find { it.languageCode == appLanguageCode && it.name == appCountryCode }
+            ?: CountryCode.TW
 
     return countryCode
+}
+
+fun getApiLang(context: Context): String = when (getAppCountryCode(context)) {
+    CountryCode.TW -> "zh-tw"
+    CountryCode.CN -> "zh-cn"
+    CountryCode.US -> "en"
+    CountryCode.JP -> "ja"
+    CountryCode.KR -> "ko"
+    CountryCode.ES -> "es"
+    CountryCode.ID -> "id"
+    CountryCode.TH -> "th"
+    CountryCode.VN -> "vi"
 }

@@ -17,7 +17,7 @@ interface Apis {
         @Header(HEAD_ACCEPT) accept: String = ACCEPT_JSON,
         @Path("lang") lang: String,
         @Query("page") page: Int
-    ): Observable<ListResp<Attractions>>
+    ): Observable<ListResp<Attractions?>>
 
     @GET("{lang}/Events/News")
     fun getNewsList(
