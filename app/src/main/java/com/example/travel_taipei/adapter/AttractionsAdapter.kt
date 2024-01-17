@@ -94,7 +94,7 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     fun removeLoadingItem() {
-        if (attractionsData.last() != null) {
+        if (attractionsData.size == 0 || attractionsData.last() != null) {
             return
         }
         this.notifyItemRemoved(attractionsData.size - 1)

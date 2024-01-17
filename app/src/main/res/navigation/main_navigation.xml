@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_mainFragment_to_attractionsDetailFragment"
             app:destination="@id/attractionsDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/attractionsDetailFragment"
@@ -20,5 +23,16 @@
         <argument
             android:name="attractionDetailParameters"
             app:argType="com.example.travel_taipei.api.datamodel.AttractionsDetail" />
+        <action
+            android:id="@+id/action_attractionsDetailFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.example.travel_taipei.ui.fragment.WebViewFragment"
+        tools:layout="@layout/fragment_web_view">
+        <argument
+            android:name="webParameters"
+            app:argType="com.example.travel_taipei.api.datamodel.WebView" />
     </fragment>
 </navigation>

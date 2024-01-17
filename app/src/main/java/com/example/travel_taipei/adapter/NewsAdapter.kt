@@ -4,10 +4,15 @@ import android.content.Context
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.travel_taipei.MainApplication.Companion.appResources
+import com.example.travel_taipei.R
 import com.example.travel_taipei.api.datamodel.News
+import com.example.travel_taipei.api.datamodel.WebView
 import com.example.travel_taipei.databinding.ItemLoadingBinding
 import com.example.travel_taipei.databinding.ItemNewsBinding
+import com.example.travel_taipei.ui.fragment.MainFragmentDirections
 import com.example.travel_taipei.util.VIEW_TYPE_ITEM
 import com.example.travel_taipei.util.VIEW_TYPE_LOADING
 
@@ -47,8 +52,22 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is NewsViewHolder) {
             holder.title.text = newsData[position]?.title
-            holder.content.text = Html.fromHtml(newsData[position]?.description, Html.FROM_HTML_MODE_LEGACY)
+            holder.content.text =
+                Html.fromHtml(newsData[position]?.description, Html.FROM_HTML_MODE_LEGACY)
 
+            if (!newsData[position]?.url.isNullOrBlank()) {
+                holder.item.setOnClickListener { view ->
+                    val parameters = WebView(
+                        appResources.getString(R.string.title_news),
+                        newsData[position]!!.url
+                    )
+
+                    val action =
+                        MainFragmentDirections.actionMainFragmentToWebViewFragment(parameters)
+
+                    Navigation.findNavController(view).navigate(action)
+                }
+            }
         }
     }
 
@@ -69,7 +88,7 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     fun removeLoadingItem() {
-        if (newsData.last() != null) {
+        if (newsData.size == 0 || newsData.last() != null) {
             return
         }
         this.notifyItemRemoved(newsData.size - 1)
@@ -79,6 +98,8 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class NewsViewHolder(view: ItemNewsBinding) : RecyclerView.ViewHolder(view.root) {
         val title = view.txvTitle
         val content = view.txvContent
+        val item = view.mcvNews
     }
+
     inner class LoadingViewHolder(view: ItemLoadingBinding) : RecyclerView.ViewHolder(view.root)
 }

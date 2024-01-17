@@ -11,7 +11,6 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import androidx.navigation.fragment.findNavController
 import com.example.travel_taipei.MainApplication.Companion.appResources
 import com.example.travel_taipei.R
 import com.example.travel_taipei.adapter.MainTabAdapter
@@ -19,6 +18,7 @@ import com.example.travel_taipei.databinding.FragmentMainBinding
 import com.example.travel_taipei.viewmodel.MainViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -32,6 +32,8 @@ class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Timber.d("onCreate")
+
+        initTransition()
     }
 
     override fun onCreateView(
@@ -60,6 +62,10 @@ class MainFragment : Fragment() {
         binding = null
     }
 
+    private fun initTransition() {
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+    }
     private fun initTab() {
         tabAdapter = MainTabAdapter(childFragmentManager, lifecycle)
         binding!!.vpMain.adapter = tabAdapter
