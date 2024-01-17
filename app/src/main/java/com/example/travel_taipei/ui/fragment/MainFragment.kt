@@ -11,6 +11,7 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.travel_taipei.MainApplication.Companion.appResources
 import com.example.travel_taipei.R
 import com.example.travel_taipei.adapter.MainTabAdapter
@@ -48,6 +49,11 @@ class MainFragment : Fragment() {
         return binding?.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        Timber.d("onViewCreated")
+    }
     override fun onDestroy() {
         super.onDestroy()
 
@@ -55,8 +61,7 @@ class MainFragment : Fragment() {
     }
 
     private fun initTab() {
-        requireActivity().title = appResources.getString(R.string.app_name)
-        tabAdapter = MainTabAdapter(parentFragmentManager, lifecycle)
+        tabAdapter = MainTabAdapter(childFragmentManager, lifecycle)
         binding!!.vpMain.adapter = tabAdapter
 
         TabLayoutMediator(binding!!.tlMain, binding!!.vpMain) { tab, position ->
@@ -65,6 +70,7 @@ class MainFragment : Fragment() {
     }
 
     private fun initBarMenu() {
+        requireActivity().title = appResources.getString(R.string.app_name)
         requireActivity().addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.main_menu, menu)
@@ -79,6 +85,7 @@ class MainFragment : Fragment() {
                     .setPositiveButton(appResources.getString(R.string.confirm)) { _, _ ->
                         mainVM.setLanguage()
                         initTab()
+                        requireActivity().title = appResources.getString(R.string.app_name)
                     }
                     .setSingleChoiceItems(
                         appResources.getStringArray(R.array.language_options),

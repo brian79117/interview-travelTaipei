@@ -12,6 +12,7 @@
     android:layout_marginBottom="@dimen/_4sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_attractions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/_8sdp">
@@ -37,13 +38,12 @@
             app:layout_constraintStart_toEndOf="@+id/iv_main"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/v_divider"
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/md_divider"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_1sdp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:background="@color/grey_500"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_main"
             app:layout_constraintTop_toBottomOf="@+id/txv_title" />
@@ -60,6 +60,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_main"
-            app:layout_constraintTop_toBottomOf="@id/v_divider" />
+            app:layout_constraintTop_toBottomOf="@id/md_divider" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

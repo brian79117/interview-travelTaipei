@@ -13,4 +13,8 @@
     <string name="api_403_error">Quyền bị từ chối</string>
     <string name="api_404_error">Dữ liệu không tồn tại</string>
     <string name="api_500_error">Đã xảy ra lỗi nội bộ trong hệ thống</string>
+    <string name="attractionDetail_title_openTime">Giờ kinh doanh:</string>
+    <string name="attractionDetail_title_address">Địa chỉ:</string>
+    <string name="attractionDetail_title_phone">Số liên lạc:</string>
+    <string name="attractionDetail_title_url">URL:</string>
 </resources>

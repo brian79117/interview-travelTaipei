@@ -1,5 +1,7 @@
 package com.example.travel_taipei.api.datamodel
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import java.io.Serializable
 
 data class Attractions(
@@ -53,3 +55,14 @@ data class Friendly(
     val id: Int,
     val name: String
 ): Serializable
+
+@Parcelize
+data class AttractionsDetail(
+    val name: String,
+    val openTime: String,
+    val address: String,
+    val phone: String,
+    val url: String,
+    val content: String,
+    val images: ArrayList<String>
+) : Parcelable

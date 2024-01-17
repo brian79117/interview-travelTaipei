@@ -48,6 +48,12 @@ class NewsFragment : Fragment() {
         return binding?.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        Timber.d("onViewCreated")
+    }
+
     override fun onDestroy() {
         super.onDestroy()
 

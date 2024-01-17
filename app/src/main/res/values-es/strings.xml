@@ -13,4 +13,8 @@
     <string name="api_403_error">Permiso denegado</string>
     <string name="api_404_error">Los datos no existen</string>
     <string name="api_500_error">Se produjo un error interno en el sistema</string>
+    <string name="attractionDetail_title_openTime">Horas de trabajo:</string>
+    <string name="attractionDetail_title_address">DIRECCIÓN:</string>
+    <string name="attractionDetail_title_phone">Número de contacto:</string>
+    <string name="attractionDetail_title_url">URL:</string>
 </resources>

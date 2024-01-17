@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mcv_attractions"
+    android:id="@+id/mcv_news"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_100sdp"
     android:clickable="true"
@@ -28,12 +28,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/v_divider"
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/md_divider"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_1sdp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
-            android:background="@color/grey_500"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txv_title" />
@@ -49,6 +48,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/v_divider" />
+            app:layout_constraintTop_toBottomOf="@id/md_divider" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

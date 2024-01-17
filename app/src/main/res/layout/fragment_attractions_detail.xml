@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.AttractionsDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/iv_empty"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/default_image"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/vp_banner"
+            app:layout_constraintEnd_toEndOf="@id/vp_banner"
+            app:layout_constraintStart_toStartOf="@id/vp_banner"
+            app:layout_constraintTop_toTopOf="@id/vp_banner" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_banner"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_150sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+        </androidx.viewpager2.widget.ViewPager2>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/vp_banner"
+            app:layout_constraintEnd_toEndOf="@id/vp_banner"
+            app:layout_constraintStart_toStartOf="@id/vp_banner" />
+
+        <TextView
+            android:id="@+id/txv_openTimeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vp_banner" />
+
+        <TextView
+            android:id="@+id/txv_openTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txv_openTimeTitle"
+            app:layout_constraintTop_toBottomOf="@+id/vp_banner" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/md_firstDivider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txv_openTime" />
+
+        <TextView
+            android:id="@+id/txv_addressTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintStart_toStartOf="@id/txv_openTimeTitle"
+            app:layout_constraintTop_toBottomOf="@+id/md_firstDivider" />
+
+        <TextView
+            android:id="@+id/txv_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintEnd_toEndOf="@id/txv_openTime"
+            app:layout_constraintStart_toEndOf="@id/txv_addressTitle"
+            app:layout_constraintTop_toBottomOf="@+id/md_firstDivider" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/md_secondDivider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txv_address" />
+
+        <TextView
+            android:id="@+id/txv_phoneTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintStart_toStartOf="@id/txv_addressTitle"
+            app:layout_constraintTop_toBottomOf="@+id/md_secondDivider" />
+
+        <TextView
+            android:id="@+id/txv_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintEnd_toEndOf="@id/txv_address"
+            app:layout_constraintStart_toEndOf="@id/txv_phoneTitle"
+            app:layout_constraintTop_toBottomOf="@+id/md_secondDivider" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/md_thirdDivider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txv_phone" />
+
+        <TextView
+            android:id="@+id/txv_urlTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintStart_toStartOf="@id/txv_phoneTitle"
+            app:layout_constraintTop_toBottomOf="@+id/md_thirdDivider" />
+
+        <TextView
+            android:id="@+id/txv_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textColor="@color/material_dynamic_primary40"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintEnd_toEndOf="@id/txv_phone"
+            app:layout_constraintStart_toEndOf="@id/txv_urlTitle"
+            app:layout_constraintTop_toBottomOf="@+id/md_thirdDivider" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/md_fourthDivider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txv_url" />
+
+        <TextView
+            android:id="@+id/txv_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/txv_url"
+            app:layout_constraintStart_toStartOf="@id/txv_urlTitle"
+            app:layout_constraintTop_toBottomOf="@+id/md_fourthDivider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

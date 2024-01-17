@@ -13,4 +13,8 @@
     <string name="api_403_error">Izin ditolak</string>
     <string name="api_404_error">Datanya tidak ada</string>
     <string name="api_500_error">Terjadi kesalahan internal pada sistem</string>
+    <string name="attractionDetail_title_openTime">Jam kerja:</string>
+    <string name="attractionDetail_title_address">Alamat:</string>
+    <string name="attractionDetail_title_phone">Nomor kontak:</string>
+    <string name="attractionDetail_title_url">URL:</string>
 </resources>

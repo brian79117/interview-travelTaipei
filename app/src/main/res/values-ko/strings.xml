@@ -13,4 +13,8 @@
     <string name="api_403_error">허가가 거부되었습니다</string>
     <string name="api_404_error">데이터가 존재하지 않습니다</string>
     <string name="api_500_error">시스템 내부 오류가 발생했습니다</string>
+    <string name="attractionDetail_title_openTime">업무 시간:</string>
+    <string name="attractionDetail_title_address">주소:</string>
+    <string name="attractionDetail_title_phone">연락처:</string>
+    <string name="attractionDetail_title_url">URL:</string>
 </resources>

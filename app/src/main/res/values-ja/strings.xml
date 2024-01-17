@@ -13,4 +13,8 @@
     <string name="api_403_error">許可が拒否されました</string>
     <string name="api_404_error">データが存在しません</string>
     <string name="api_500_error">システムで内部エラーが発生しました</string>
+    <string name="attractionDetail_title_openTime">営業時間：</string>
+    <string name="attractionDetail_title_address">住所：</string>
+    <string name="attractionDetail_title_phone">連絡先番号:</string>
+    <string name="attractionDetail_title_url">URL:</string>
 </resources>

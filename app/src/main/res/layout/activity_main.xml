@@ -8,13 +8,15 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcv_main"
-        android:name="com.example.travel_taipei.ui.fragment.MainFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mt_appbar" />
+        app:layout_constraintTop_toBottomOf="@+id/mt_appbar"
+        app:navGraph="@navigation/main_navigation"/>
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/mt_appbar"

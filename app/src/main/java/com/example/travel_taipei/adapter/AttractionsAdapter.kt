@@ -1,14 +1,18 @@
 package com.example.travel_taipei.adapter
 
 import android.content.Context
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.travel_taipei.R
 import com.example.travel_taipei.api.datamodel.Attractions
+import com.example.travel_taipei.api.datamodel.AttractionsDetail
 import com.example.travel_taipei.databinding.ItemAttractionsBinding
 import com.example.travel_taipei.databinding.ItemLoadingBinding
+import com.example.travel_taipei.ui.fragment.MainFragmentDirections
 import com.example.travel_taipei.util.VIEW_TYPE_ITEM
 import com.example.travel_taipei.util.VIEW_TYPE_LOADING
 
@@ -42,12 +46,28 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is AttractionsViewHolder) {
             holder.title.text = attractionsData[position]?.name
-            holder.content.text = attractionsData[position]?.introduction
+            holder.content.text =
+                Html.fromHtml(attractionsData[position]?.introduction, Html.FROM_HTML_MODE_LEGACY)
             Glide.with(context)
                 .load(if (attractionsData[position]?.images?.size == 0) null else attractionsData[position]!!.images[0].src)
                 .centerInside()
                 .error(context.getDrawable(R.drawable.default_image))
                 .into(holder.image)
+
+            holder.item.setOnClickListener { view ->
+                val parameters = AttractionsDetail(
+                    attractionsData[position]!!.name,
+                    attractionsData[position]!!.open_time,
+                    attractionsData[position]!!.address,
+                    attractionsData[position]!!.tel,
+                    attractionsData[position]!!.official_site,
+                    attractionsData[position]!!.introduction,
+                    ArrayList(attractionsData[position]!!.images.map { it.src })
+                )
+
+                val action = MainFragmentDirections.actionMainFragmentToAttractionsDetailFragment(parameters)
+                Navigation.findNavController(view).navigate(action)
+            }
         }
     }
 
@@ -86,7 +106,9 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         val title = view.txvTitle
         val content = view.txvContent
         val image = view.ivMain
+        val item = view.mcvAttractions
     }
 
     inner class LoadingViewHolder(view: ItemLoadingBinding) : RecyclerView.ViewHolder(view.root)
+
 }

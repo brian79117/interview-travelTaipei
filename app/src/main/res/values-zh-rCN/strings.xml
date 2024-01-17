@@ -13,4 +13,8 @@
     <string name="api_403_error">权限遭拒</string>
     <string name="api_404_error">资料不存在</string>
     <string name="api_500_error">系统发生内部错误</string>
+    <string name="attractionDetail_title_openTime">营业时间：</string>
+    <string name="attractionDetail_title_address">地址：</string>
+    <string name="attractionDetail_title_phone">联络电话：</string>
+    <string name="attractionDetail_title_url">网址：</string>
 </resources>
