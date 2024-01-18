@@ -20,6 +20,7 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val attractionsData = ArrayList<Attractions?>()
     private lateinit var context: Context
+    private var isItemClickable = true
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         context = parent.context
@@ -55,18 +56,24 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 .into(holder.image)
 
             holder.item.setOnClickListener { view ->
-                val parameters = AttractionsDetail(
-                    attractionsData[position]!!.name,
-                    attractionsData[position]!!.open_time,
-                    attractionsData[position]!!.address,
-                    attractionsData[position]!!.tel,
-                    attractionsData[position]!!.official_site,
-                    attractionsData[position]!!.introduction,
-                    ArrayList(attractionsData[position]!!.images.map { it.src })
-                )
+                if (isItemClickable) {
+                    isItemClickable = false
+                    val parameters = AttractionsDetail(
+                        attractionsData[position]!!.name,
+                        attractionsData[position]!!.open_time,
+                        attractionsData[position]!!.address,
+                        attractionsData[position]!!.tel,
+                        attractionsData[position]!!.official_site,
+                        attractionsData[position]!!.introduction,
+                        ArrayList(attractionsData[position]!!.images.map { it.src })
+                    )
 
-                val action = MainFragmentDirections.actionMainFragmentToAttractionsDetailFragment(parameters)
-                Navigation.findNavController(view).navigate(action)
+                    val action =
+                        MainFragmentDirections.actionMainFragmentToAttractionsDetailFragment(
+                            parameters
+                        )
+                    Navigation.findNavController(view).navigate(action)
+                }
             }
         }
     }
@@ -99,6 +106,10 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
         this.notifyItemRemoved(attractionsData.size - 1)
         attractionsData.removeLast()
+    }
+
+    fun setItemClickable(isClickable: Boolean) {
+        isItemClickable = isClickable
     }
 
     inner class AttractionsViewHolder(view: ItemAttractionsBinding) :

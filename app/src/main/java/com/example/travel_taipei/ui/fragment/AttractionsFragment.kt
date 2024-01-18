@@ -41,7 +41,7 @@ class AttractionsFragment : Fragment() {
         initAttractionsList()
         initObservers()
 
-        attractionsVM.getAttractionsList()
+        attractionsVM.getAttractionsList(false)
 
         return binding?.root
     }
@@ -51,6 +51,7 @@ class AttractionsFragment : Fragment() {
 
         Timber.d("onViewCreated")
     }
+
     override fun onDestroy() {
         super.onDestroy()
 
@@ -94,9 +95,11 @@ class AttractionsFragment : Fragment() {
                     !attractionsVM.isLoading.value!! &&
                     LIST_PAGE_SIZE * attractionsVM.page < attractionsVM.totalCount
                 ) {
-                    attractionsVM.getAttractionsList()
+                    attractionsVM.getAttractionsList(true)
                 }
             }
         })
+
+        attractionsAdapter.setItemClickable(true)
     }
 }

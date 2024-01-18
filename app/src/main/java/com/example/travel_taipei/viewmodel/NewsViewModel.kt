@@ -39,9 +39,11 @@ class NewsViewModel @Inject constructor(
         }
     }
 
-    fun getNewsList() {
-        page += 1
-        repo.newsResp.postValue(ApiResponse.loading())
-        repo.getNewsList(getApiLang(appContext), page)
+    fun getNewsList(isMore: Boolean) {
+        if (isMore || newsListData.value == null) {
+            page += 1
+            repo.newsResp.postValue(ApiResponse.loading())
+            repo.getNewsList(getApiLang(appContext), page)
+        }
     }
 }

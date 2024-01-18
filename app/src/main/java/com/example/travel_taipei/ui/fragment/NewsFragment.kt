@@ -43,7 +43,7 @@ class NewsFragment : Fragment() {
         initNewsList()
         initObservers()
 
-        newsVM.getNewsList()
+        newsVM.getNewsList(false)
 
         return binding?.root
     }
@@ -97,9 +97,11 @@ class NewsFragment : Fragment() {
                     !newsVM.isLoading.value!! &&
                     LIST_PAGE_SIZE * newsVM.page < newsVM.totalCount
                 ) {
-                    newsVM.getNewsList()
+                    newsVM.getNewsList(true)
                 }
             }
         })
+
+        newsAdapter.setItemClickable(true)
     }
 }

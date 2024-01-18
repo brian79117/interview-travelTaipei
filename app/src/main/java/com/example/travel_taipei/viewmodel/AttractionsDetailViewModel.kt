@@ -10,6 +10,6 @@ import javax.inject.Inject
 @HiltViewModel
 class AttractionsDetailViewModel @Inject constructor(state: SavedStateHandle) : ViewModel() {
     val params = state.get<AttractionsDetail>("attractionDetailParameters")
-
+    var isUrlClickable = true
     fun getWebViewParams(): WebView = WebView(params!!.name, params.url)
 }

@@ -39,9 +39,11 @@ class AttractionsViewModel @Inject constructor(
         }
     }
 
-    fun getAttractionsList() {
-        page += 1
-        repo.attractionsResp.postValue(ApiResponse.loading())
-        repo.getAttractionsList(getApiLang(appContext), page)
+    fun getAttractionsList(isMore: Boolean) {
+        if (isMore || attractionsListData.value == null) {
+            page += 1
+            repo.attractionsResp.postValue(ApiResponse.loading())
+            repo.getAttractionsList(getApiLang(appContext), page)
+        }
     }
 }

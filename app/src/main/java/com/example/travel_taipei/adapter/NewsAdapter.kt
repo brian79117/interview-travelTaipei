@@ -20,6 +20,7 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val newsData = ArrayList<News?>()
     private lateinit var context: Context
+    private var isItemClickable = true
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         context = parent.context
@@ -57,15 +58,18 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             if (!newsData[position]?.url.isNullOrBlank()) {
                 holder.item.setOnClickListener { view ->
-                    val parameters = WebView(
-                        appResources.getString(R.string.title_news),
-                        newsData[position]!!.url
-                    )
+                    if (isItemClickable) {
+                        isItemClickable = false
+                        val parameters = WebView(
+                            appResources.getString(R.string.title_news),
+                            newsData[position]!!.url
+                        )
 
-                    val action =
-                        MainFragmentDirections.actionMainFragmentToWebViewFragment(parameters)
+                        val action =
+                            MainFragmentDirections.actionMainFragmentToWebViewFragment(parameters)
 
-                    Navigation.findNavController(view).navigate(action)
+                        Navigation.findNavController(view).navigate(action)
+                    }
                 }
             }
         }
@@ -93,6 +97,10 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
         this.notifyItemRemoved(newsData.size - 1)
         newsData.removeLast()
+    }
+
+    fun setItemClickable(isClickable: Boolean) {
+        isItemClickable = isClickable
     }
 
     inner class NewsViewHolder(view: ItemNewsBinding) : RecyclerView.ViewHolder(view.root) {

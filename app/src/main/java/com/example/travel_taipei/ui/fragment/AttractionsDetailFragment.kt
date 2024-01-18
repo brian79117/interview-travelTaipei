@@ -68,6 +68,7 @@ class AttractionsDetailFragment : Fragment() {
 
     private fun initView() {
         requireActivity().title = attractionsDetailVM.params?.name
+        attractionsDetailVM.isUrlClickable = true
 
         binding!!.txvOpenTimeTitle.text =
             appResources.getString(R.string.attractionDetail_title_openTime)
@@ -85,11 +86,14 @@ class AttractionsDetailFragment : Fragment() {
 
         if (!attractionsDetailVM.params?.url.isNullOrBlank()) {
             binding!!.txvUrl.setOnClickListener {
-                val action =
-                    AttractionsDetailFragmentDirections.actionAttractionsDetailFragmentToWebViewFragment(
-                        attractionsDetailVM.getWebViewParams()
-                    )
-                findNavController().navigate(action)
+                if (attractionsDetailVM.isUrlClickable) {
+                    attractionsDetailVM.isUrlClickable = false
+                    val action =
+                        AttractionsDetailFragmentDirections.actionAttractionsDetailFragmentToWebViewFragment(
+                            attractionsDetailVM.getWebViewParams()
+                        )
+                    findNavController().navigate(action)
+                }
             }
         }
 
