@@ -96,6 +96,7 @@ class AttractionsFragment : Fragment() {
                     LIST_PAGE_SIZE * attractionsVM.page < attractionsVM.totalCount
                 ) {
                     attractionsVM.getAttractionsList(true)
+                    Timber.d(">>> page: ${attractionsVM.page}, item: ${manager.itemCount}, total: ${attractionsVM.totalCount}")
                 }
             }
         })

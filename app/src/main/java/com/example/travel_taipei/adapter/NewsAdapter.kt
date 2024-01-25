@@ -76,6 +76,8 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     fun setData(data: ArrayList<News?>) {
+        if (data.lastOrNull() == newsData.lastOrNull())
+            return
         val startPos = newsData.size
         val insertCount = data.size
         newsData.addAll(data)

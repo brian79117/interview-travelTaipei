@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,6 +16,7 @@ import com.example.travel_taipei.databinding.ItemLoadingBinding
 import com.example.travel_taipei.ui.fragment.MainFragmentDirections
 import com.example.travel_taipei.util.VIEW_TYPE_ITEM
 import com.example.travel_taipei.util.VIEW_TYPE_LOADING
+import timber.log.Timber
 
 class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -52,7 +54,7 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             Glide.with(context)
                 .load(if (attractionsData[position]?.images?.size == 0) null else attractionsData[position]!!.images[0].src)
                 .centerInside()
-                .error(context.getDrawable(R.drawable.default_image))
+                .error(AppCompatResources.getDrawable(context, R.drawable.default_image))
                 .into(holder.image)
 
             holder.item.setOnClickListener { view ->
@@ -85,10 +87,13 @@ class AttractionsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     fun setData(data: ArrayList<Attractions?>) {
+        if (data.lastOrNull() == attractionsData.lastOrNull())
+            return
         val startPos = attractionsData.size
         val insertCount = data.size
         attractionsData.addAll(data)
         this.notifyItemRangeInserted(startPos, insertCount)
+        Timber.d(">>> setData: ${attractionsData.size}")
     }
 
     fun setLoadingItem() {

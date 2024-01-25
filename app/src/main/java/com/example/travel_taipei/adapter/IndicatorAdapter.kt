@@ -3,6 +3,7 @@ package com.example.travel_taipei.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.travel_taipei.R
 import com.example.travel_taipei.databinding.ItemIndicatorBinding
@@ -27,10 +28,10 @@ class IndicatorAdapter : RecyclerView.Adapter<IndicatorAdapter.ViewHolder>(){
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (position == currentPosition)
             holder.indicator.background =
-                context.resources.getDrawable(R.drawable.indecator_choose, context.theme)
+                ResourcesCompat.getDrawable(context.resources, R.drawable.indecator_choose, context.theme)
         else
             holder.indicator.background =
-                context.resources.getDrawable(R.drawable.indicator_default, context.theme)
+                ResourcesCompat.getDrawable(context.resources, R.drawable.indicator_default, context.theme)
     }
 
     override fun getItemCount(): Int = bannerLength

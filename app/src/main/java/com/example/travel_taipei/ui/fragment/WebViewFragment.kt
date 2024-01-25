@@ -64,7 +64,7 @@ class WebViewFragment : Fragment() {
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                binding!!.lpiLoading.visibility = View.GONE
+                binding?.lpiLoading?.visibility = View.GONE
                 Timber.d("onPageFinished")
             }
 

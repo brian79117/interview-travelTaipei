@@ -1,6 +1,5 @@
 package com.example.travel_taipei.adapter
 
-import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle

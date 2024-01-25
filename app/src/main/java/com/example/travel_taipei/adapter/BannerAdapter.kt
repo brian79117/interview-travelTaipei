@@ -3,6 +3,7 @@ package com.example.travel_taipei.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.travel_taipei.R
@@ -28,7 +29,7 @@ class BannerAdapter : RecyclerView.Adapter<BannerAdapter.ViewHolder>() {
         Glide.with(context)
             .load(images[position])
             .centerInside()
-            .error(context.getDrawable(R.drawable.default_image))
+            .error(AppCompatResources.getDrawable(context, R.drawable.default_image))
             .into(holder.image)
     }
 
